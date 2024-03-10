@@ -1,0 +1,28 @@
+/* Style.css */
+.home-container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-container {
+  width: 100%;
+  height: 70vh; /* Adjust as needed */
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.logout-link {
+  text-decoration: none;
+  color: #3498db; /* Link color */
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.logout-link:hover {
+  color: #2980b9; /* Link color on hover */
+}
