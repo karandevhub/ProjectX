@@ -1,0 +1,34 @@
+/* styles.css */
+
+.video-player-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.video-canvas {
+  height: 400px;
+}
+
+.button-container {
+  margin-top: 10px;
+}
+
+.start-button, .stop-button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.start-button:hover, .stop-button:hover {
+  background-color: #0056b3;
+}
