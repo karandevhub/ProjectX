@@ -1,34 +1,11 @@
-/* styles.css */
-
 .video-player-container {
   display: flex;
-  flex-direction: column;
-  max-width: 750px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  align-items: center;
+  flex-wrap: wrap;
 }
 
 .video-canvas {
-  height: 400px;
-}
-
-.button-container {
-  margin-top: 10px;
-}
-
-.start-button, .stop-button {
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.start-button:hover, .stop-button:hover {
-  background-color: #0056b3;
+  flex: 1 0 300px; /* Set initial width and allow wrapping */
+  max-width: 100%; /* Ensure canvas doesn't exceed container width */
+  height: 200px; /* Set initial height */
+  margin: 10px; /* Add margin for spacing between players */
 }

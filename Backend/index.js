@@ -2,35 +2,39 @@ const express = require('express');
 const Stream = require('node-rtsp-stream');
 const cors = require('cors');
 
-
 const app = express();
 const port = 4000;
-let stream = null;
-let currentRtspStreamUrl='rtsp://0.tcp.in.ngrok.io:13770//h264_ulaw.sdp';
+let streams = [];
+const currentRtspStreamUrl = 'http://192.168.29.150:8080';
+const rtspUrls = [
+  "rtmp://122.200.18.78/live/camone",
+  "rtmp://122.200.18.78/live/camtwo",
+  "rtmp://122.200.18.78/live/abc",
+  "rtmp://122.200.18.78/live/camthree",
+  "rtmp://122.200.18.78/live/camtwo",
+  "rtmp://122.200.18.78/live/camtwo",
+  "rtmp://122.200.18.78/live/camtwo",
+];
+
 app.use(
   cors({
     origin: "http://localhost:5173",
-    credentials: true 
+    credentials: true
   })
 );
 
 app.get('/stream', (req, res) => {
-  const id = req.params.id;
-  const newRtspStreamUrl = currentRtspStreamUrl;
-
-  // Create the WebSocket stream only if it doesn't exist or the RTSP URL has changed
-  if (!stream || currentRtspStreamUrl !== newRtspStreamUrl) {
-    if (stream) {
-      stream.stop();
-    }
-    stream = new Stream({
-      name: 'Camera Stream',
-      streamUrl: newRtspStreamUrl,
-      wsPort: 9999
+  // Create the WebSocket streams only if they don't exist
+  if (streams.length === 0) {
+    rtspUrls.forEach((url, index) => {
+      const stream = new Stream({
+        name: `Camera Stream ${index + 1}`,
+        streamUrl: url,
+        wsPort: 9999 + index
+      });
+      streams.push(stream);
     });
-    currentRtspStreamUrl = newRtspStreamUrl;
   }
-
 
   res.send('Streaming started');
 });

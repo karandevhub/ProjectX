@@ -45,6 +45,7 @@ const App = () => {
           path="/dashboard"
           element={<Dashboard cameras={demoCameras} />}
         />
+        <Route path="/Camera" element={<Login />} />
         <Route path="/" element={<Splash/>}/>
       </Routes>
     </Router>

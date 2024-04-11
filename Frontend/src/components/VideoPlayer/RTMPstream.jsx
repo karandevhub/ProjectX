@@ -1,59 +1,35 @@
 import React, { useEffect } from "react";
 import JSMpeg from "@cycjimmy/jsmpeg-player";
-import axios from "axios";
-import "./style.css"
+import "./style.css";
 
 const RTMPstream = () => {
-
   useEffect(() => {
-    let canvas = document.getElementById("video-canvas");
-    let url = "ws://localhost:9999";
-    new JSMpeg.Player(url, { canvas: canvas });
+    // Array of RTMP stream URLs
+    const rtmpUrls = [
+      "ws://localhost:9999",
+      "ws://localhost:10000", // Add more URLs if needed
+      "ws://localhost:10001",
+      "ws://localhost:10002",
+      "ws://localhost:10003",
+    ];
+
+    // Loop through each RTMP stream URL and create a player for each
+    rtmpUrls.forEach((url, index) => {
+      const canvasId = `video-canvas-${index}`;
+      const canvas = document.getElementById(canvasId);
+      new JSMpeg.Player(url, { canvas: canvas });
+    });
   }, []);
 
-  const rtspurl = "http://localhost:4000/stream";
-
-  const httpRequest = async(url) => {
-   return await axios.get(url)
-     .then(response => {
-       console.log("Request successful:", response.data);
-       return response.data;
-     })
-     .catch(error => {
-       console.error("Error making request:", error);
-       throw error; 
-     });
- };
- 
- const startRTSPFeed = () => {
-   httpRequest(rtspurl)
-     .then(data => {
-       console.log("RTSP feed started successfully:", data);
-     })
-     .catch(error => {
-       console.error("Error starting RTSP feed:", error);
-     });
- };
- 
- const stopRTSPFeed = () => {
-   httpRequest("http://localhost:4000/stream?rtsp=stop")
-     .then(data => {
-       console.log("RTSP feed stopped successfully:", data);
-     })
-     .catch(error => {
-       console.error("Error stopping RTSP feed:", error);
-     });
- };
- 
   return (
     <div className="video-player-container">
-      
-        <canvas className="video-canvas" id="video-canvas"></canvas>
-     
-      <div className="button-container">
-        <button className="start-button" onClick={startRTSPFeed}>Start RTSP Feed</button>
-        <button className="stop-button" onClick={stopRTSPFeed}>Stop RTSP Feed</button>
-      </div>
+      {/* Render a canvas element for each stream */}
+      <canvas className="video-canvas" id="video-canvas-0"></canvas>
+      <canvas className="video-canvas" id="video-canvas-1"></canvas>
+      <canvas className="video-canvas" id="video-canvas-2"></canvas>
+      <canvas className="video-canvas" id="video-canvas-3"></canvas>
+      <canvas className="video-canvas" id="video-canvas-4"></canvas>
+      {/* Add more canvas elements if needed */}
     </div>
   );
 };
