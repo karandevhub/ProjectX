@@ -5,6 +5,8 @@ import Dashboard from "../Dashboard/Dashboard";
 import Login from "../Login/Login";
 import "./Style.css";
 import Splash from "../Splash/Splash";
+import Page from "../page";
+import Templates from "../Notification";
 
 const App = () => {
   const [isAuthenticated, setAuthenticated] = useState(false);
@@ -47,6 +49,8 @@ const App = () => {
         />
         <Route path="/Camera" element={<Login />} />
         <Route path="/" element={<Splash/>}/>
+        <Route path="/page" element={<Page/>}/>
+        <Route path="/Notification" element={<Templates/>}/>
       </Routes>
     </Router>
   );
