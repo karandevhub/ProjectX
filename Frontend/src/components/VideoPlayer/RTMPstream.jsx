@@ -4,13 +4,14 @@ import "./style.css";
 
 const RTMPstream = () => {
   useEffect(() => {
-    // Array of RTMP stream URLs
+
     const rtmpUrls = [
-      "ws://localhost:9999",
-      "ws://localhost:10000", // Add more URLs if needed
-      "ws://localhost:10001",
-      "ws://localhost:10002",
-      "ws://localhost:10003",
+      "ws://34.93.193.135:9999",
+      "ws://34.93.193.135:10000", 
+      "ws://34.93.193.135:10001",
+      "ws://34.93.193.135:10002",
+      "ws://34.93.193.135:10003",
+      "ws://34.93.193.135:10004",
     ];
 
     // Loop through each RTMP stream URL and create a player for each
@@ -23,13 +24,14 @@ const RTMPstream = () => {
 
   return (
     <div className="video-player-container">
-      {/* Render a canvas element for each stream */}
+      
       <canvas className="video-canvas" id="video-canvas-0"></canvas>
       <canvas className="video-canvas" id="video-canvas-1"></canvas>
       <canvas className="video-canvas" id="video-canvas-2"></canvas>
       <canvas className="video-canvas" id="video-canvas-3"></canvas>
       <canvas className="video-canvas" id="video-canvas-4"></canvas>
-      {/* Add more canvas elements if needed */}
+      <canvas className="video-canvas" id="video-canvas-5"></canvas>
+
     </div>
   );
 };

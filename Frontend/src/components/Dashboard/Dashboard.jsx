@@ -10,9 +10,6 @@ import RTMPStream from "../VideoPlayer/RTMPstream";
 const Dashboard = ({ cameras, mapCenter, mapMarkers }) => {
   return (
     <div>
-      <CameraList cameras={cameras} />
-      <CarForm/>
-      <RTMPStream/>
       <Map cameras={cameras} />
     </div>
   );

@@ -1,11 +1,14 @@
 .video-player-container {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .video-canvas {
-  flex: 1 0 300px; /* Set initial width and allow wrapping */
-  max-width: 100%; /* Ensure canvas doesn't exceed container width */
-  height: 200px; /* Set initial height */
-  margin: 10px; /* Add margin for spacing between players */
+  flex: 1 0 300px; 
+  max-width: 480px; 
+  height: 300px;
+  margin: 10px; 
+  border:3px solid rgb(30, 255, 0)
 }

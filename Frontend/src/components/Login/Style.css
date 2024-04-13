@@ -5,8 +5,8 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #2ecc71; /* Example background color */
-    color: #ffffff; /* Example text color */
+    background-color: #2ecc71; 
+    color: #070707; 
   }
   
   .login-form {

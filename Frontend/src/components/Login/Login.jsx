@@ -8,8 +8,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    // Perform authentication logic (e.g., API call)
-    // If successful, navigate to the home screen
+ 
     navigate("/Dashboard");
   };
 

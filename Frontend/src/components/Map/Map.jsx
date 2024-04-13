@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useNavigation } from "react-router-dom";
 import "./Style.css";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -10,10 +10,14 @@ const Map = ({ cameras }) => {
   const DEFAULT_ZOOM = 11;
   const mapRef = useRef();
 
+  const navigate = useNavigate();
 
   return (
     <div className="home-container">
       <h1>Home Screen</h1>
+      <Link to="/CameraList" className="button">
+        Camera devices
+      </Link>
       <div className="map-container">
         <MapContainer
           center={center}

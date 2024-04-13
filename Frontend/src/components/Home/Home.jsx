@@ -7,6 +7,7 @@ import "./Style.css";
 import Splash from "../Splash/Splash";
 import Page from "../page";
 import Templates from "../Notification";
+import CameraList from "../CameraList/CameraList";
 
 const App = () => {
   const [isAuthenticated, setAuthenticated] = useState(false);
@@ -47,7 +48,7 @@ const App = () => {
           path="/dashboard"
           element={<Dashboard cameras={demoCameras} />}
         />
-        <Route path="/Camera" element={<Login />} />
+        <Route path="/CameraList" element={<CameraList />} />
         <Route path="/" element={<Splash/>}/>
         <Route path="/page" element={<Page/>}/>
         <Route path="/Notification" element={<Templates/>}/>
