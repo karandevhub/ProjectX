@@ -14,6 +14,9 @@ const RTMPstream = () => {
       "ws://34.93.193.135:10004",
     ];
 
+
+    
+
     // Loop through each RTMP stream URL and create a player for each
     rtmpUrls.forEach((url, index) => {
       const canvasId = `video-canvas-${index}`;

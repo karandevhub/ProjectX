@@ -4,6 +4,7 @@ import "./Style.css";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import osm from "../Map/osm-provider";
+import Navbar from "../navbar";
 
 const Map = ({ cameras }) => {
   const [center, setCenter] = useState([23.6693, 86.1511]);
@@ -13,6 +14,8 @@ const Map = ({ cameras }) => {
   const navigate = useNavigate();
 
   return (
+    <div>
+      <Navbar/>
     <div className="home-container">
       <h1>Home Screen</h1>
       <Link to="/CameraList" className="button">
@@ -39,6 +42,7 @@ const Map = ({ cameras }) => {
       <Link to="/" className="logout-link">
         Logout
       </Link>
+    </div>
     </div>
   );
 };

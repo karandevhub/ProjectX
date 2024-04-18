@@ -8,6 +8,9 @@ import Splash from "../Splash/Splash";
 import Page from "../page";
 import Templates from "../Notification";
 import CameraList from "../CameraList/CameraList";
+import DVRList from "../Dvrlist";
+import SignIn from "../SignIn";
+import CameraInterface from "../CameraInterface";
 
 const App = () => {
   const [isAuthenticated, setAuthenticated] = useState(false);
@@ -52,6 +55,9 @@ const App = () => {
         <Route path="/" element={<Splash/>}/>
         <Route path="/page" element={<Page/>}/>
         <Route path="/Notification" element={<Templates/>}/>
+        <Route path="/dvr" element={<DVRList/>}/>
+        <Route path="/signin" element={<SignIn/>}/>
+        <Route path="/cam" element={<CameraInterface/>}/>
       </Routes>
     </Router>
   );
