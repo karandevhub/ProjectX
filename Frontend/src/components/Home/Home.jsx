@@ -1,13 +1,25 @@
 // App.js
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Dashboard from "../Dashboard/Dashboard";
+
 import Login from "../Login/Login";
 import "./Style.css";
 import Splash from "../Splash/Splash";
 import Page from "../page";
 import Templates from "../Notification";
 import CameraList from "../CameraList/CameraList";
+import Dashboard from "../Dashboard/Dashboards";
+import AddCamera from "../CameraList/AddCamera";
+import RemoveCamera from "../CameraList/RemoveCamera";
+import DVR from "../../pages/DVR";
+import Map from "../../pages/Map/Map";
+
+import Detection from "../../pages/Detection";
+import Reports from "../../pages/Reports";
+import Alerts from "../../pages/Alerts";
+import UserSettings from "../../pages/UserSettings";
+import Settings from "../../pages/Settings";
+import CameraPage from "../../pages/CameraList";
 
 const App = () => {
   const [isAuthenticated, setAuthenticated] = useState(false);
@@ -43,15 +55,25 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        {/* Auth routes */}
+
+        <Route path="/" element={<Splash />} />
         <Route path="/login" element={<Login />} />
-        <Route
-          path="/dashboard"
-          element={<Dashboard cameras={demoCameras} />}
-        />
-        <Route path="/CameraList" element={<CameraList />} />
-        <Route path="/" element={<Splash/>}/>
-        <Route path="/page" element={<Page/>}/>
-        <Route path="/Notification" element={<Templates/>}/>
+        {/* Protected Routes */}
+        <Route path="/dashboard" element={<Dashboard />} />
+        
+        {/* Camera routes */}
+        <Route path="/*" element={<CameraPage />} />
+        
+        <Route path="/DVR" element={<DVR />} />
+        <Route path="/Map" element={<Map cameras={demoCameras}/>} />
+        <Route path="/Detection" element={<Detection />} />
+        <Route path="/Reports" element={<Reports />} />
+        <Route path="/Alerts" element={<Alerts />} />
+        <Route path="/User" element={<UserSettings />} />
+        <Route path="/Settings" element={<Settings />} />
+        <Route path="/page" element={<Page />} />
+        <Route path="/Notification" element={<Templates />} />
       </Routes>
     </Router>
   );
